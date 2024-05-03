@@ -20,6 +20,7 @@ class _CardExampleState extends State<CardExample> {
     Quote(text: 'I learned from Hussain how to achieve victory while being oppressed',author: 'Mahatma Gandhi'),
     Quote(text: 'A fools mind is at the mercy of his tongue and a wise mans tongue is under the control of his mind',author: 'Imam Ali'),
   ];
+  
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,14 @@ class _CardExampleState extends State<CardExample> {
         backgroundColor: const Color.fromARGB(255, 131, 210, 133),
       ),
       body: Column(children:quote.map((e) {
-        return QuoteTempletWidget(quote: e);
+        return QuoteTempletWidget(
+          quote: e,
+          delete:(){
+            setState(() {
+              quote.remove(e);
+            });
+          }
+        );
          }).toList(),
         )
       );

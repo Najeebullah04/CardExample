@@ -2,12 +2,16 @@
 import 'package:flutter/material.dart';
 import 'quote.dart';
 class QuoteTempletWidget extends StatelessWidget {
+  
+
+  final Quote quote;
+  final Function delete;
+
   const QuoteTempletWidget({
     super.key,
     required this.quote,
+    required this.delete,
   });
-
-  final Quote quote;
 
   @override
   Widget build(BuildContext context) {
@@ -27,14 +31,7 @@ class QuoteTempletWidget extends StatelessWidget {
               fontSize: 17.0,
             ),),
           ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [ 
-            Icon(Icons.thumb_up , color: Colors.blueGrey,),
-            SizedBox(width: 5.0,),
-            Icon(Icons.thumb_down,color: Colors.blueGrey),
-            SizedBox(width: 10.0,),
-          ],)
+          ElevatedButton.icon(onPressed:()=> delete(), icon:const  Icon( Icons.cancel), label:const  Text('remove'))
         ],
       )
     );
